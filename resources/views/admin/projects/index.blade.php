@@ -31,7 +31,7 @@
                                     <td>{{ $project->slug }}</td>
                                     <td>{{ Str::limit($project->description, 20, '...') }}</td>
                                     <td>
-                                        <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}"
+                                        <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
                                             class="btn btn-sm btn-square btn-primary ">
                                             <i class="fas fa-eye"></i>
                                         </a>
