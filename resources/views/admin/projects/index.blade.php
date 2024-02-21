@@ -31,7 +31,10 @@
                                     <td>{{ $project->slug }}</td>
                                     <td>{{ Str::limit($project->description, 20, '...') }}</td>
                                     <td>
-                                        TOOLS
+                                        <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}"
+                                            class="btn btn-sm btn-square btn-primary ">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
