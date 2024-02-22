@@ -9,7 +9,7 @@
                         PROJECTS
                     </h2>
                     <div>
-                        <a href="#" class="btn btn-sm btn-primary">Add Project</a>
+                        <a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn-primary">Aggiungi progetto</a>
                     </div>
                 </div>
                 <div class="col-12">
@@ -32,7 +32,7 @@
                                     <td>{{ Str::limit($project->description, 20, '...') }}</td>
                                     <td>
                                         <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                            class="btn btn-sm btn-square btn-primary ">
+                                            title="Visualizza progetto" class="btn btn-sm btn-square btn-primary ">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                     </td>
