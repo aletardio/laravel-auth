@@ -31,14 +31,26 @@
                                     <td>{{ $project->slug }}</td>
                                     <td>{{ Str::limit($project->description, 20, '...') }}</td>
                                     <td>
-                                        <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                            title="Visualizza progetto" class="btn btn-sm btn-square btn-primary ">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                        <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
-                                            title="Modifica progetto" class="btn btn-sm btn-square btn-warning ">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
+                                        <div class="d-flex">
+                                            <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
+                                                title="Visualizza progetto" class="btn btn-sm btn-square btn-primary me-2">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
+                                                title="Modifica progetto" class="btn btn-sm btn-square btn-warning me-2">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <form class="me-2" title="Elimina progetto"
+                                                action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
+                                                method="POST"
+                                                onsubmit="return confirm ('Sei sicuro di voler cancellare questo progetto?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-square btn-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
