@@ -40,7 +40,7 @@
                                                 title="Modifica progetto" class="btn btn-sm btn-square btn-warning me-2">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <form class="me-2" title="Elimina progetto"
+                                            {{-- <form class="me-2" title="Elimina progetto"
                                                 action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
                                                 method="POST"
                                                 onsubmit="return confirm ('Sei sicuro di voler cancellare questo progetto?')">
@@ -49,7 +49,13 @@
                                                 <button type="submit" class="btn btn-sm btn-square btn-danger">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
-                                            </form>
+                                            </form> --}}
+                                            <button type="submit" class="btn btn-sm btn-square btn-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modal_post_delete-{{ $project->id }}">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            @include('admin.projects.partials.modal_delete')
                                         </div>
                                     </td>
                                 </tr>
