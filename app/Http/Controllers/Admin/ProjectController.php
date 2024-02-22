@@ -44,11 +44,9 @@ class ProjectController extends Controller
 
         $project = new Project();
 
-        $project->title = $form_data['title'];
+        $project->fill($form_data);
         $slug = Str::slug($project->title, '-');
         $project->slug = $slug;
-        $project->link = $form_data['link'];
-        $project->description = $form_data['description'];
 
         $project->save();
 
@@ -104,6 +102,5 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
     }
 }

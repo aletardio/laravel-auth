@@ -26,7 +26,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => 'required|max:150|min:5',
             'link' => 'required|max:150|min:10',
-            'description' => 'required|max:100|min:10',
+            'description' => 'required|max:150|min:10',
         ];
     }
 
@@ -40,7 +40,7 @@ class StoreProjectRequest extends FormRequest
             'link.max' => 'Il link del progetto deve essere lungo al massimo di 150 caratteri',
             'link.min' => 'Il link del progetto deve essere lungo minimo 10 caratteri',
             'description.required' => 'La descrizione del progetto è obbligatorio',
-            'description.max' => 'La descrizione del progetto deve essere lungo al massimo di 100 caratteri',
+            'description.max' => 'La descrizione del progetto deve essere lungo al massimo di 150 caratteri',
             'description.min' => 'La descrizione del progetto deve essere lungo minimo 10 caratteri',
         ];
     }
