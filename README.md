@@ -20,3 +20,7 @@ Proseguite poi con il definire il layout, modello, migrazione, controller e rott
    Bonus:
    Personalizzare la grafica del gestionale.
    Buon lavoro!
+
+Laravel Boolfolio - Cover Image
+Ciao ragazzi, continuiamo a lavorare nella repo dei giorni scorsi e aggiungiamo un’immagine ai nostri progetti. Ricordiamoci di creare il symlink con l’apposito comando artisan e di aggiungere l’attributo enctype="multipart/form-data" ai form di creazione e di modifica!
+Buon lavoro e buon divertimento!
