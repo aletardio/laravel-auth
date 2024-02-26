@@ -12,7 +12,7 @@
                         @endforeach
                     </div>
                 @endif
-                <form action="{{ route('admin.projects.update', $project->id) }}" method="POST">
+                <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group my-3">
@@ -28,6 +28,23 @@
                         <input type="text" name="link" id="link" placeholder="Link" class="form-control"
                             value="{{ old('link') ?? $project->link }}" required>
                         @error('link')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group my-3">
+                        @if ($project->cover_image != null)
+                            <div>
+                                <img class="w-50" src="{{ asset('/storage/' . $project->cover_image) }}"
+                                    alt="{{ $project->title }}">
+                            </div>
+                        @else
+                            <h4>Immagine di copertina non impostata</h4>
+                        @endif
+                        <label for="cover_image" class="control-label">Immagine di copertina:</label>
+                        <input type="file" name="cover_image" id="cover_image" placeholder="Immagine"
+                            class="form-control @error('cover_image') is-invalid @enderror"
+                            value="{{ old('cover_image') }}">
+                        @error('cover_image')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
