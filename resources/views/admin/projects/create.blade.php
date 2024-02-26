@@ -12,28 +12,37 @@
                         @endforeach
                     </div>
                 @endif
-                <form action="{{ route('admin.projects.store') }}" method="POST">
+                <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group my-3">
                         <label for="title" class="control-label">Titolo:</label>
-                        <input type="text" name="title" id="title" placeholder="Titolo" class="form-control"
-                            required value="{{ old('title') }}">
+                        <input type="text" name="title" id="title" placeholder="Titolo"
+                            class="form-control @error('title') is-invalid @enderror" required value="{{ old('title') }}">
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group my-3">
                         <label for="link" class="control-label">Link:</label>
-                        <input type="text" name="link" id="link" placeholder="Link" class="form-control" required
-                            value="{{ old('link') }}">
+                        <input type="text" name="link" id="link" placeholder="Link"
+                            class="form-control @error('link') is-invalid @enderror" required value="{{ old('link') }}">
                         @error('link')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="cover_image" class="control-label">Immagine di copertina:</label>
+                        <input type="file" name="cover_image" id="cover_image" placeholder="Immagine"
+                            class="form-control @error('cover_image') is-invalid @enderror"
+                            value="{{ old('cover_image') }}">
+                        @error('cover_image')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group my-3">
                         <label for="description" class="control-label">Descrizione:</label>
                         <textarea name="description" id="description" cols="100" rows="10" placeholder="Descrizione"
-                            class="form-control" required>{{ old('description') }}</textarea>
+                            class="form-control @error('description') is-invalid @enderror" required>{{ old('description') }}</textarea>
                         @error('description')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
